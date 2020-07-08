@@ -220,6 +220,10 @@ indices <- list(
   all = which(likelihoods$llh.all > likelihoods[mleIndices[["all"]], "llh.all"] - threshold)
 )
 
+## Maximum likelihood parameters ----
+likelihoods[mleIndices$missing,]
+likelihoods[mleIndices$all,]
+
 ## Plot parameter distributions ----
 #' Plot only the high likelihood parameters
 param.df <- sapply(c("missing","all"), function(type) {
@@ -347,6 +351,10 @@ f <- sapply(c("missing","all"), function(type) {
       mean = mean((CDF0 - CDF) / CDF0),
       lower = min((CDF0 - CDF) / CDF0),
       upper = max((CDF0 - CDF) / CDF0),
+      presymp.mle = CDF0.mle,
+      presymp.mean = mean(CDF0),
+      presymp.lower = min(CDF0),
+      presymp.lower = max(CDF0),
       type = factor(type, levels = c("missing", "all"))
     )
   })
