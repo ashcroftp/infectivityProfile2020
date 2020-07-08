@@ -329,8 +329,7 @@ plot_grid(pdfPlot, cdfPlot, nrow = 1, align = "hv", axis = "tb", labels = "AUTO"
 ggsave("infectivityProfiles.pdf", width = 170, height = 60, units = "mm")
 
 ## Tables of results for contact tracing ----
-
-#' Filled pdf plots at each time in table
+#' Fraction of presymptomatic cases tracked at each time point before symptom onset
 times <- c(-1, -2, -3, -4, -5)
 
 f <- sapply(c("missing","all"), function(type) {
