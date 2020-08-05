@@ -257,7 +257,7 @@ plot_grid(
   }), nrow = 1, align = "hv", axis = "tb")
 
 
-## Calculate the corresponding infectivity profiles (pdf and CDF)
+## Calculate the corresponding infectivity profiles (pdf and CDF) ----
 times <- seq(-10, 25, 0.1)
 #' First the maximum likelihood functions
 mleGamma <- sapply(c("missing","all"), function(type) {
@@ -331,6 +331,7 @@ cdfPlot <- ggplot(ribbonGamma, aes(x = t, y = CDF, colour = type, fill = type)) 
 
 plot_grid(pdfPlot, cdfPlot, nrow = 1, align = "hv", axis = "tb", labels = "AUTO")
 ggsave("infectivityProfiles.pdf", width = 170, height = 60, units = "mm")
+ggsave("infectivityProfiles.eps", device = cairo_ps, fallback_resolution = 600, width = 170, height = 60, units = "mm")
 
 ## Tables of results for contact tracing ----
 #' Fraction of presymptomatic cases tracked at each time point before symptom onset
@@ -405,6 +406,7 @@ hist.plot +
   labs(x = "serial interval (days)", y = "probability")
 
 ggsave("serialDistribution.pdf", width = 102, height = 60, units = "mm")
+ggsave("serialDistribution.eps", device = cairo_ps, fallback_resolution = 600, width = 102, height = 60, units = "mm")
 
 ## Plot the incubation period ----
 incubations <- seq(0,20,0.1)
