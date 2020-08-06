@@ -332,6 +332,7 @@ cdfPlot <- ggplot(ribbonGamma, aes(x = t, y = CDF, colour = type, fill = type)) 
 plot_grid(pdfPlot, cdfPlot, nrow = 1, align = "hv", axis = "tb", labels = "AUTO")
 ggsave("infectivityProfiles.pdf", width = 170, height = 60, units = "mm")
 ggsave("infectivityProfiles.eps", device = cairo_ps, fallback_resolution = 600, width = 170, height = 60, units = "mm")
+ggsave("infectivityProfiles.jpg", width = 170, height = 60, units = "mm", dpi = 600)
 
 ## Tables of results for contact tracing ----
 #' Fraction of presymptomatic cases tracked at each time point before symptom onset
@@ -407,6 +408,7 @@ hist.plot +
 
 ggsave("serialDistribution.pdf", width = 102, height = 60, units = "mm")
 ggsave("serialDistribution.eps", device = cairo_ps, fallback_resolution = 600, width = 102, height = 60, units = "mm")
+ggsave("serialDistribution.jpg", width = 102, height = 60, units = "mm", dpi = 600)
 
 ## Plot the incubation period ----
 incubations <- seq(0,20,0.1)
